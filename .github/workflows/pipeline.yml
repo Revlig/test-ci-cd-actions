@@ -48,7 +48,7 @@ jobs:
     - name: Build and Push
       run: |
         docker buildx build \
-          --tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:latest \
+          --tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:$(date +%s) \
           --cache-from type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:buildcache \
           --cache-to type=registry,ref=${{ secrets.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:buildcache,mode=max \
           --push \
