@@ -1,12 +1,14 @@
 {
     "compilerOptions": {
       "target": "ES6",
-      "module": "ES6",
+      "module": "commonjs",
+      "jsx": "react",
       "outDir": "./dist",
       "rootDir": "./",
       "strict": true,
       "moduleResolution": "node",
       "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
       "types": ["jest"]
     },
     "include": ["src/**/*", "tests/**/*"]
