@@ -65,6 +65,9 @@ jobs:
     needs: create-release
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
+    environment:
+      name: teste
+      url: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
     permissions:
       id-token: write
       pages: write
