@@ -12,7 +12,7 @@ jobs:
     - uses: actions/setup-node@v4.4.0
       with:
         node-version: '22'
-    - run: npm install
+    - run: npm install html-webpack-plugin webpack-dev-server
     - run: npm test
 
   build:
@@ -24,7 +24,7 @@ jobs:
     - uses: actions/setup-node@v4.4.0
       with:
         node-version: '22'
-    - run: npm install
+    - run: npm install html-webpack-plugin webpack-dev-server
     - run: npm run build
       env:
         NODE_ENV: production
