@@ -29,9 +29,16 @@ jobs:
       env:
         NODE_ENV: production
 
+    # para uso geral, caso queira utilizar o artefato de outra forma
     - uses: actions/upload-artifact@v4.6.2
       with:
         name: webapp-artifact
+        path: dist/
+
+    # para uso pelo github pages
+    - uses: actions/upload-pages-artifact@v3.0.1
+      with:
+        name: webapp-pages-artifact
         path: dist/
 
   create-release:
@@ -64,8 +71,8 @@ jobs:
     steps:
     - uses: actions/download-artifact@v4.2.1
       with:
-        name: webapp-artifact
+        name: webapp-pages-artifact
 
     - uses: actions/deploy-pages@v4.0.5
       with:
-        artifact_name: webapp-artifact
+        artifact_name: webapp-pages-artifact
