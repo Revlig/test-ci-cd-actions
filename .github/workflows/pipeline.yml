@@ -13,7 +13,7 @@ jobs:
       with:
         node-version: '22'
     - run: npm install
-    - run: npm test
+    - run: npm run test
 
   build:
     needs: test
@@ -46,11 +46,6 @@ jobs:
       
     - name: Create Release
       uses: softprops/action-gh-release@v2.2.2
-      with:
-        files: |
-          dist/bundle.js
-          dist/index.html
-
 
   deploy:
     needs: create-release
